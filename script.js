@@ -1,6 +1,6 @@
 let teclas;
 let pantalla = document.getElementById("pantalla");
-let clear; 
+let clear;
 let igual;
 let operador;
 let valorUno;
@@ -17,20 +17,14 @@ window.onload = function () {
     operador = document.getElementsByClassName('operador');
     valorUno = this.innerHTML;
     valorDos = this.innerHTML;
-    multiplicar = document.getElementById("multiplicar");
-    dividir = document.getElementById("dividir");
-    restar = document.getElementById("restar");
-    sumar = document.getElementById("sumar");
-    igual = document.getElementById('igual');
-   
     clear = document.getElementById("clear");
     clear.addEventListener(`click`, function () {
         pantalla.value = ""
         valorUno = "";
         valorDos = "";
     })
-    
-      resolver()
+
+    //resolver()
 
 }
 
@@ -42,20 +36,20 @@ function agregarEventos(teclas) {
     for (let i = 0; i < teclas.length; i++) {
         teclas[i].addEventListener('click', function () {
             let valor = this.innerHTML;
-        
+
             if (pantalla.value.length < 15) {
 
                 pantalla.value += valor;
 
             }
 
-           
+
 
         });
 
     }
-      
-   
+
+
 }
 
 //INTENTO CON ARRAYS
@@ -117,72 +111,97 @@ igual.addEventListener('click', function(){
     pantalla.value = resolver()
 })*/
 
+
+
 //INTENTO CON FUNCIONES Y EVENTOS
-/*multiplicar.onclick = function(e) {
+/*multiplicar = document.getElementById("multiplicar");
+multiplicar.addEventListener('click', function () {
     valorUno = pantalla.value;
     operador = "*";
-}
+    limpiar()
+});
 
-dividir.onclick = function() {
+dividir = document.getElementById("dividir");
+dividir.addEventListener('click', function () {
     valorUno = pantalla.value;
     operador = "/";
-}
+    limpiar()
+});
 
-restar.onclick = function() {
+restar = document.getElementById("resta");
+restar.addEventListener('click', function () {
     valorUno = pantalla.value;
     operador = "-";
-}
+    limpiar()
+});
 
-sumar.onclick = function() {
+
+sumar = document.getElementById("suma");
+sumar.addEventListener('click', function () {
     valorUno = pantalla.value;
     operador = "+";
-}
+    limpiar()
+});
 
 
-igual.onclick = function(){
+igual = document.getElementById('igual');
+igual.addEventListener('click', function () {
     valorDos = pantalla.value;
     resolver()
 
+})
+
+function limpiar() {
+
+    pantalla.value = "";
 }
 
+function resetear() {
+    pantalla.value ="";
+    valorUno = "";
+    valorDos = "";
+    operacion = "";
+}
 
- function resolver(){
+function resolver() {
 
     let respuesta = "";
     switch (operador) {
         case "*":
             valorUno = pantalla.value;
             respuesta = parseFloat(valorUno) * parseFloat(valorDos);
-            console.log("multiplicacion")
-            
+
+
             break;
 
-            case "/":
-            valorUno = pantalla.valueL;
+        case "/":
+            valorUno = pantalla.value;
             respuesta = parseFloat(valorUno) / parseFloat(valorDos);
-            console.log("division")
+
 
             break;
 
-            case "-":
+        case "-":
             valorUno = pantalla.value;
             respuesta = parseFloat(valorUno) - parseFloat(valorDos);
-            console.log("resta")
+
 
             break;
 
-            case "+":
+        case "+":
             valorUno = pantalla.value;
             respuesta = parseFloat(valorUno) + parseFloat(valorDos);
-            console.log("suma")
+
 
             break;
-       }
+    }
+    resetear();
+    pantalla.value = respuesta;
 
-       pantalla.value = respuesta;
 
-   
- }*/
+}*/
+
+
 
  igual = document.getElementById("igual");
  igual.addEventListener('click', function(){
